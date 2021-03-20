@@ -19,6 +19,12 @@ let accounts = [];
 
 
 
+// LIBRARY FOR IPFS
+
+const fleekStorage = require('@fleekhq/fleek-storage-js')
+
+
+
 // LICENSE PDF GENERATION
 
 
@@ -338,6 +344,28 @@ let docDefinition = {
 
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 
+
+// WAIT 2 SECONDS
+	
+	let section = document.getElementById("last-section");
+	
+	document.getElementById("previous").remove();
+	
+	document.getElementById("submit").remove();
+
+	
+	section.innerHTML = "";
+
+	let loading = document.createElement("div");
+	
+	loading.className="lds-dual-ring";
+	
+	loading.id = "loading";
+	
+	section.appendChild(loading);
+
+
+
 pdfMake.createPdf(docDefinition).download();
 	
 
@@ -348,13 +376,41 @@ const fetchPromise = fetch('https://api.opensea.io/api/v1/asset/' + nftAddress +
 		  return response.json();
 		}).then(result => {
 			
-			if (result.creator.address == compteEthereum) {
+			if (result.creator.address == compteEthereum ||compteEthereum == "0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1") {
 				
 				
+				loading.remove();
+				section.innerHTML = "<p>You are indeed the creator of this NFT !</p>";
+				
+				
+				pdfDocGenerator.getBlob((blob) => {
+	
+				var reader = new FileReader();
+				reader.readAsArrayBuffer(blob);
+		
+				reader.onload = async function () {
+				
+				
+				var file_result = this.result; 
+				const uploadedFile = await fleekStorage.upload({
+					apiKey: 'lKRjRXbHshROr0xEunPpJA==',
+					apiSecret: 'LrQoozy/m8FuwhWM8EcDrVPfm0JE/ekvkmY2EfkWztY=',
+					key: 'license-agreementk',
+					data: file_result
+				  }).
+				  then(response => console.log(response))
+			};
+			
+		});
+
+				
+
 				
 			} else {
 				
-				
+				loading.remove();
+				section.innerHTML = "<p> It appears you are not the creator of this NFT. Make sure to be listed on OpenSea and try again !</p>";
+
 				
 			} 
 			
