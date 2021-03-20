@@ -5,6 +5,10 @@ const web3 = new Web3(Web3.givenProvider||'https://ropsten.infura.io/v3/d3e5e3e6
 
 let accounts = [];
 
+;
+
+import {makeLicense} from  'license-agreement.js';
+
 
 
 document.getElementById("submit").addEventListener("click", function () {

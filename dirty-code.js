@@ -1,3 +1,6 @@
+
+//LIBRARIES FOR PDF GENERATION
+
 const pdfMake = require('pdfmake/build/pdfmake.js');
 
 const pdfFonts = require('pdfmake/build/vfs_fonts.js');
@@ -5,10 +8,27 @@ const pdfFonts = require('pdfmake/build/vfs_fonts.js');
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
-function makeLicense () {
-	
-	
-	
+
+//LIBRARIES FOR METAMASK AND CO
+
+const Web3 = require('web3');
+
+const web3 = new Web3(Web3.givenProvider||'https://ropsten.infura.io/v3/d3e5e3e6c2e84b5db33392f297d77c4d');
+
+let accounts = [];
+
+
+
+// LICENSE PDF GENERATION
+
+
+document.getElementById("submit").addEventListener("click", function () {
+
+
+
+//VARIABLES
+
+
 let firstname = document.getElementById("firstname").value;
 
 let lastname = document.getElementById("lastname").value;
@@ -19,15 +39,13 @@ let description = document.getElementById("description").value;
 
 let exclusiveValue; 
 
-if(document.querySelector('input[name=exclusive]:checked').value == "yes") {
-	
-		exclusiveValue = "an exclusive,";
-	} else {
-		exclusiveValue = "a non-exclusive,";
-	}
 
-
-
+	if(document.querySelector('input[name=exclusive]:checked').value == "yes") {
+		
+			exclusiveValue = "an exclusive,";
+		} else {
+			exclusiveValue = "a non-exclusive,";
+		}
 
 
 
@@ -45,14 +63,14 @@ if(document.querySelector('input[name=reproduce]:checked').value == "yes") {
 
 let modifyValue;
 
-
 var selector = document.getElementById('modify');
+
 var value = selector[selector.selectedIndex].value;
 
 if(value == "yes-approval") {
 	
 	
-	modifyValue = " - Upon prior written approval of the Licensor, the Licensee may adapt, translate, modify, arrange, transform and correct the Authored Work, in particular, without being exhaustive, through the retouching, the cropping, the change of format or colors of the Authored Work. Or the affixing on these, by the Licensee, its name, its brand and its logo, in particular to take account of technical, material or commercial constraints or for any other legitimate reason, subject to respect for the moral rights of the Licensor.\n\n"
+	modifyValue = " - upon prior written approval of the Licensor, to adapt, translate, modify, arrange, transform and correct the Authored Work, in particular, without being exhaustive, through the retouching, the cropping, the change of format or colors of the Authored Work. Or the affixing on these, by the Licensee, its name, its brand and its logo, in particular to take account of technical, material or commercial constraints or for any other legitimate reason, subject to respect for the moral rights of the Licensor.\n\n"
 
 	} else if(value =="yes") {
 			
@@ -62,7 +80,6 @@ if(value == "yes-approval") {
 	}else {
 		
 		modifyValue = "";
-
 		
 	}
 
@@ -78,28 +95,25 @@ if(document.querySelector('input[name=merchandising]:checked').value == "yes") {
 		merchandisingValue = "";
 	}
 	
-	
-	
-	
-	
+document.querySelector('input[name=guarantee]:checked').value;
 
 
 
 
- document.querySelector('input[name=guarantee]:checked').value;
+const ethereumAccount = accounts[0]
 
-let ethereumAccount = "addresse ethereum";
+let nftAddress = document.getElementById("nft-address").value;
 
-let nftAddress = "adresse nft";
-
-let tokenId = "tokenID";
+let tokenId = document.getElementById("token-id").value;
 
 const d = new Date();
 
 const date = d.toLocaleString('en-US');
 
+const options = {method: 'GET'};
 
 
+// DOC CONSTRUCTION
   
 let docDefinition = {
 
@@ -310,36 +324,7 @@ let docDefinition = {
 					]
 					
 					}
-					
-					
-					
-					
-					
-					
-		
-
-					
-					
-				
-
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+									
                 ]
             }
 
@@ -348,13 +333,40 @@ let docDefinition = {
     }
   
 
+// DOC FINISHED
+
+
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 
-
 pdfMake.createPdf(docDefinition).download();
+	
+
+const fetchPromise = fetch('https://api.opensea.io/api/v1/asset/' + nftAddress + '/' + tokenId, options);
+	
+	
+		fetchPromise.then(response => {
+		  return response.json();
+		}).then(result => {
+			
+			if (result.creator.address == compteEthereum) {
+				
+				
+				
+			} else {
+				
+				
+				
+			} 
+			
+		});
+  
+	
+})
+
+
 
 	
-}
+
 
   
  
