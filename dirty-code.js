@@ -94,7 +94,7 @@ const abi = [
 
 const contractAddress = "0x2F4Ad8438aF7e27AD1cE5AdF41386314707B01cA";
 
-const contract = new web3.eth.Contract(abi, addresseSmartcontract);
+const contract = new web3.eth.Contract(abi, contractAddress);
 
 
 
