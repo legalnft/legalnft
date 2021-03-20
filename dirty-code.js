@@ -221,7 +221,7 @@ document.getElementById("submit").addEventListener("click", function() {
 
 
                     {
-                        text: "DEFINITIONS \n\n",
+                        text: 'DEFINITIONS \n\n',
                         alignment: 'left',
                         bold: true
 
@@ -229,26 +229,26 @@ document.getElementById("submit").addEventListener("click", function() {
 
 
                     {
-                        text: ["'The Authored Work' refers to the work of the mind produced by the Licensor as described as follows : ",
+                        text: ['"The Authored Work" refers to the work of the mind produced by the Licensor as described as follows : ',
 
                             description,
 
                             ".\n\n",
 
-                            "'The Blockchain' refers to the decentralized, open-source blockchain Ethereum; in its version implemented by the go-ethereum software client.\n\n",
+                            '"The Blockchain" refers to the decentralized, open-source blockchain Ethereum; in its version implemented by the go-ethereum software client.\n\n',
 
-                            "'The Licensor' refers to the Party who has created the Authored Work and minted the NFT. The Licensor's Blockchain address is : ",
+                            '"The Licensor" refers to the Party who has created the Authored Work and minted the NFT, whose Blockchain address is : ',
 
                             ethereumAccount,
 
                             ".\n\n",
 
-                            "'The Licensee' refers to the Party who has legitimately acquired the NFT. The function 'ownerOf' of the NFT smart contract indicates their address as the owner of the NFT.\n\n",
+                            '"The Licensee" refers to the Party who has legitimately acquired the NFT. The function "ownerO" of the NFT smart contract indicates their address as the owner of the NFT.\n\n',
 
-                            "(The Licensor and the Licensee may be known collectively as the 'Parties'. All references to the Licensee and Licensor in this agreement shall include, if relevant, the Parties' parent companies, affiliates, and subsidiaries.)\n\n",
+                            '(The Licensor and the Licensee may be known collectively as the "Parties".)\n\n',
 
 
-                            "'The NFT' refers to the non-fungible digital asset that a smart contract keeps track of. The smart contract is deployed, in the Blockchain, at this address : ",
+                            '"The NFT" refers to the non-fungible digital asset that a smart contract keeps track of. The smart contract is deployed, in the Blockchain, at this address : ',
 
 
                             nftAddress,
@@ -275,7 +275,7 @@ document.getElementById("submit").addEventListener("click", function() {
                         text: [
 
 
-                            "This Licensing Agreement (the 'Agreement') is made effective as of ",
+                            'This Licensing Agreement (the "Agreement") is made effective as of ',
 
                             date,
 
@@ -453,7 +453,6 @@ document.getElementById("submit").addEventListener("click", function() {
 
 
 
-    pdfMake.createPdf(docDefinition).download();
 
 
     const fetchPromise = fetch('https://api.opensea.io/api/v1/asset/' + nftAddress + '/' + tokenId, options);
@@ -465,9 +464,12 @@ document.getElementById("submit").addEventListener("click", function() {
 
             if (result.creator.address == ethereumAccount || ethereumAccount == 0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1) {
 
-
-                section.innerHTML = "<p>Yep, you are indeed the creator of this NFT. Wait a couple more seconds while we store your license agreement....</p>";
-
+				
+				const pleaseWait = document.createElement(p);
+				
+                pleaseWait.innerHTML = "To reliably store your licensing agreement, we will send its IPFS address to our smart contract. Please make sure to validate the transaction.";
+				
+				section.appendChild(pleaseWait);
 
                 pdfDocGenerator.getBlob((blob) => {
 
@@ -497,9 +499,10 @@ document.getElementById("submit").addEventListener("click", function() {
 
                                     .then(function() {
 
-										
+										pdfMake.createPdf(docDefinition).download();
+
 										loading.remove();
-										section.innerHTML = "<p>...And it's done ! Check right now your License agreement with our explorer !</p>";
+										section.innerHTML = "<p>...And it's done ! Check right now your Licensing agreement with our explorer !</p>";
 
 
                                     })
@@ -516,7 +519,7 @@ document.getElementById("submit").addEventListener("click", function() {
         } else {
 
             loading.remove();
-            section.innerHTML = "<p> Sorry we could not find your address as the creator of the NFT. Please make sure to be listed on OpenSea and try again !</p>";
+            section.innerHTML = "<p> Sorry, we could not find your address as the creator of the NFT. Please make sure to be listed on OpenSea and try again !</p>";
 
 
         }
