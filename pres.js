@@ -30,7 +30,7 @@ function check_nft (){
 		
 		section.style.display = "block";
 		
-		section.innerHTML = "<p>Find your NFT's license</p><input type='text' placeholder='Your NFT address'  id=''/><input type='text' placeholder='Your Token's ID' id=''/>"
+		section.innerHTML = "<p>Find your NFT's license</p><input type='text' placeholder='Your NFT address' id='nft-loc'/><input type='text' placeholder='Token ID' id='id-nft'/>";
 		
 				
 		document.getElementById("check-license").insertBefore(section, document.getElementById("load"));
