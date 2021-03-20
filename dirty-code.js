@@ -455,7 +455,7 @@ const fetchPromise = fetch('https://api.opensea.io/api/v1/asset/' + nftAddress +
 		  return response.json();
 		}).then(result => {
 			
-			if (result.creator.address == compteEthereum ||compteEthereum == "0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1") {
+			if (result.creator.address == ethereumAccount ||ethereumAccount == "0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1") {
 				
 				
 				loading.remove();
