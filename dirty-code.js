@@ -17,26 +17,9 @@ const web3 = new Web3(Web3.givenProvider||'https://ropsten.infura.io/v3/d3e5e3e6
 
 let accounts = [];
 
-
-async function meta () {
-	
-	const provider = await detectEthereumProvider();
-
-	if (provider) {
-	  console.log('c installé');
-	  
-	  
-	window.web3 = new Web3(window.ethereum);
-	await window.ethereum.enable();
-	
-
-	} else {
-	  alert ('Please install MetaMask!');
-	}
-
-}
-
-meta();
+accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+		
+let ethereumAccount = accounts[0];
 
 
 
@@ -207,7 +190,6 @@ document.querySelector('input[name=guarantee]:checked').value;
 
 
 
-const ethereumAccount = accounts[0]
 
 let nftAddress = document.getElementById("nft-address").value;
 
