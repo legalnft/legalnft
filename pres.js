@@ -4,10 +4,15 @@ async function meta () {
 
 	if (provider) {
 	  console.log('c installé');
-	} else {
-	  console.log('Please install MetaMask!');
-	}
+	  
+	  
+	window.web3 = new Web3(window.ethereum);
+	await window.ethereum.enable();
+	
 
+	} else {
+	  alert ('Please install MetaMask!');
+	}
 
 }
 
