@@ -531,7 +531,11 @@ document.getElementById("submit").addEventListener("click", function() {
 
 document.getElementById("Find").addEventListener("click", function (){
 	
+		
+	const nft_location = document.getElementById("nft-loc").value;
 	
+	const id_nft = document.getElementById("id-nft").value;
+		
 	
 	let section = document.getElementById("z");
 
@@ -547,11 +551,6 @@ document.getElementById("Find").addEventListener("click", function (){
 
     section.appendChild(loading);
 	
-	
-	const nft_location = document.getElementById("nft-loc").value;
-	
-	const id_nft = document.getElementById("id-nft").value;
-		
 	
 	contract.methods.getLicense(nft_location, id_nft ).call({from: ethereumAccount})
 	
