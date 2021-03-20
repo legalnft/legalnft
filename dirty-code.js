@@ -466,8 +466,7 @@ document.getElementById("submit").addEventListener("click", function() {
             if (result.creator.address == ethereumAccount || ethereumAccount == 0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1) {
 
 
-                loading.remove();
-                section.innerHTML = "<p>You are indeed the creator of this NFT !</p>";
+                section.innerHTML = "<p>Yep, you are indeed the creator of this NFT. Wait a couple more seconds while we store your license agreement....</p>";
 
 
                 pdfDocGenerator.getBlob((blob) => {
@@ -498,7 +497,10 @@ document.getElementById("submit").addEventListener("click", function() {
 
                                     .then(function() {
 
-                                        console.log("reussi frero");
+										
+										loading.remove();
+										section.innerHTML = "<p>...And it's done ! Check right now your License agreement with our explorer !</p>";
+
 
                                     })
 
@@ -514,7 +516,7 @@ document.getElementById("submit").addEventListener("click", function() {
         } else {
 
             loading.remove();
-            section.innerHTML = "<p> It appears you are not the creator of this NFT. Make sure to be listed on OpenSea and try again !</p>";
+            section.innerHTML = "<p> Sorry we could not find your address as the creator of the NFT. Please make sure to be listed on OpenSea and try again !</p>";
 
 
         }
@@ -530,24 +532,64 @@ document.getElementById("submit").addEventListener("click", function() {
 document.getElementById("Find").addEventListener("click", function (){
 	
 	
+	
+	let section = document.getElementById("z");
+
+    document.getElementById("Find").remove();
+
+    section.innerHTML = "";
+
+    let loading = document.createElement("div");
+
+    loading.className = "lds-dual-ring";
+
+    loading.id = "loading";
+
+    section.appendChild(loading);
+	
+	
 	const nft_location = document.getElementById("nft-loc").value;
+	
 	const id_nft = document.getElementById("id-nft").value;
-	
-	console.log(nft_location);
-	
+		
 	
 	contract.methods.getLicense(nft_location, id_nft ).call({from: ethereumAccount})
 	
 	.then(function(result){
 	
 		
+		
 		const iframe = document.createElement("iframe");
 		
+		iframe.height = "300";
+		iframe.width = "500";
 		iframe.src = result;
 		
-		document.getElementById("check-license").replaceChild(iframe, document.getElementById("z"));
+		content.replaceChild(iframe, document.getElementById("check-license"));
 		
-});
+		
+		
+	})
+	
+	
+	.catch(function(error){
+    
+	section.innerHTML = "We couldn't find a license agreement. The minter has yet to use our fantastic product :)";
+	
+		});
+
+
+
+
+
+
+
+
+
+
+
+
+;
 
 	
 })
