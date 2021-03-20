@@ -18,6 +18,85 @@ const web3 = new Web3(Web3.givenProvider||'https://ropsten.infura.io/v3/d3e5e3e6
 let accounts = [];
 
 
+const abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_ipfsHash",
+				"type": "string"
+			}
+		],
+		"name": "addLicense",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_nftContract",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getLicense",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "licenseRegistry",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+const contractAddress = "0x2F4Ad8438aF7e27AD1cE5AdF41386314707B01cA";
+
+const contract = new web3.eth.Contract(abi, addresseSmartcontract);
+
+
 
 // LIBRARY FOR IPFS
 
