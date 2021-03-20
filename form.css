@@ -37,7 +37,7 @@ body {
 	 	 
   
   width: 300px;
-height: 200px;
+height: 175px;
   margin: 7px 0px;
   display: inline-block;
   padding: 12px 25px;
@@ -89,7 +89,7 @@ h1{
   display:none;
 }
 
-#protect{
+#check-license{
 	
 	display : none;
 }
@@ -109,18 +109,17 @@ h1{
 
 
 #mint, #protect-nft, #check-nft {
-  background-color: #f1f1f1;
-    padding: 14px 16px;
-	  cursor: pointer;
-
-
+	
+	background-color: #f1f1f1;
+	padding: 14px 16px;
+	cursor: pointer;
+	border : none;
+	
 		}
 
 
 #mint:hover, #protect-nft:hover, #check-nft:hover {
     background-color: #ddd;
-
-
 
 		}
 

@@ -22,43 +22,50 @@
 
 <div id = "tabs">
 
-<div id="mint" class="mint">
-  <span>Mint a NFT</span>
+
+
+<div  class="tab" >
+  <button id="protect-nft" onclick="show()" >Protect your NFT</button>
 </div>
 
-<div id="protect-nft" class="city" >
-  <span>Protect your NFT</span>
-</div>
-
-<div id="check-nft" class="city">
-  <span>Check your NFT's license </span>
+<div  class="tab">
+  <button id="check-nft" onclick="check_nft()">Check your NFT's license </button>
 </div>
 
 </div>
 
 
 
-  <section id="check">
+<div id ="check-license">
+
+
+  
+  
+  <div id="load">
+
+<div class="button" id="Find">Find</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+  
+  
+<div id ="protect">
+<div id="svg_wrap"></div>
+
+
+
+<section id="check">
   <p>Protect your NFT</p>
   <input type="text" placeholder="NFT address"  id="nft-address"/>
   <input type="text" placeholder="Token ID" id="token-id"/>
   </section>  
-  
-  
-<div id="load">
-
-<div class="button" id="find">Find</div>
-</div>
-
-  
-  
-  
-  
-  
-  
-  
-  <div id ="protect">
-<div id="svg_wrap"></div>
 
  
 <section id="names">
@@ -166,9 +173,20 @@
 </div>
 
 
-<script src="vfs.js"></script>
+
+
+
+
+
+
+
+
+
+
 
 <script src="bundle.js"></script>
+<script src="pres.js"></script>
+
 
 </body>
 
