@@ -531,6 +531,8 @@ document.getElementById("Find").addEventListener("click", function (){
 	const nft_location = document.getElementById("nft-loc");
 	const id_nft = document.getElementById("id-nft");
 	
+	console.log(nft_location);
+	
 	
 	contract.methods.getLicense(nft_location, id_nft ).call({from: ethereumAccount})
 	
