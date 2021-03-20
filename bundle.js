@@ -32161,7 +32161,9 @@ let accounts = [];
 
 
 
-document.getElementById("find").addEventListener("click", function (e) {
+document.getElementById("submit").addEventListener("click", function () {
+	
+	makeLicense ();
 	
 	const compteEthereum = accounts[0];
 	

@@ -5,8 +5,7 @@ const pdfFonts = require('pdfmake/build/vfs_fonts.js');
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
-document.getElementById("submit").addEventListener("click", function (e) {
-	 e.preventDefault();
+function makeLicense () {
 	
 	
 	
@@ -357,7 +356,7 @@ pdfMake.createPdf(docDefinition).download();
 	
 }
 
-  )
+  
  
 
  
