@@ -1,22 +1,4 @@
-async function meta () {
-	
-	const provider = await detectEthereumProvider();
 
-	if (provider) {
-	  console.log('c installé');
-	  
-	  
-	window.web3 = new Web3(window.ethereum);
-	await window.ethereum.enable();
-	
-
-	} else {
-	  alert ('Please install MetaMask!');
-	}
-
-}
-
-meta();
 
 function show(){
 		
