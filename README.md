@@ -7,14 +7,14 @@ LegalNFT is a Dapp that helps NFT minters and buyers get legally protected.
 
 When you mint a NFT and you are ready to sell it for millions, what exactly are you selling ? Will the buyer have the right to modify your work ? Can he commercially exploit it, without you touching a cent on it ?
 
-If you want to purchase a NFT, what exactly are you buying ? Is the creator conceding you enough rights that is worth the price you're paying ?
+If you want to purchase a NFT, what exactly are you buying ? Is the creator conceding you enough rights, worth the price you're paying ?
 
 
 <h2>What is the solution ?</h2>
 
-LegalNFT lets NFT minters generate a personal licensing agreement tied to their NFT's. While simple, the contract adds some much needed legal certainty for creators and allow them to focus on selling their art without being fully legally compromised.
+LegalNFT lets NFT minters generate a personal licensing agreement tied to their NFTs. While simple, the contract adds some much needed legal certainty for creators and allow them to focus on selling their art without being fully legally compromised.
 
-For wanna-be buyers, LegalNFT serves as "Licensing agreement explorer" for NFTs. With one click, they can instantly get access to the license agreement that the NFT's creator has created. This way, they can have a good glimplse of what they will legally acquire.
+For wanna-be buyers, LegalNFT serves as a "Licensing agreement explorer" for NFTs. With one click, they can instantly get access to the license agreement that the NFT's creator has created. This way, they can have a good glimplse of what they will legally acquire.
 
 
 <h2>How does it work ?</h2>
