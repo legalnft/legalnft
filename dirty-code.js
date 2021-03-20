@@ -21,7 +21,7 @@ let ethereumAccount;
 
 async function promptMeta (){
 	
-	accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+	let accounts = await web3.eth.getAccounts(); 
 			
 	ethereumAccount = accounts[0];
 
