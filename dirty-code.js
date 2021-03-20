@@ -22,12 +22,14 @@ async function promptMeta() {
     let accounts = await web3.eth.getAccounts();
 
     ethereumAccount = accounts[0];
+	
+	console.log(ethereumAccount);
+
 
 }
 
 promptMeta();
 
-console.log(ethereumAccount);
 
 
 const abi = [{
