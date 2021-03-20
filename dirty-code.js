@@ -349,7 +349,7 @@ const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 	
 	let section = document.getElementById("last-section");
 	
-	document.getElementById("previous").remove();
+	document.getElementById("prev").remove();
 	
 	document.getElementById("submit").remove();
 
