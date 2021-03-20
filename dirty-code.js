@@ -569,6 +569,8 @@ document.getElementById("Find").addEventListener("click", function (){
 		
 		content.replaceChild(iframe, document.getElementById("check-license"));
 		
+		window.open(result);
+
 		
 		
 	})
@@ -576,7 +578,7 @@ document.getElementById("Find").addEventListener("click", function (){
 	
 	.catch(function(error){
     
-	section.innerHTML = "We couldn't find a license agreement. The minter has yet to use our fantastic product :)";
+	section.innerHTML = "Sorry, we couldn't find a license agreement in our smart contract. The minter has yet to use our fantastic product :)";
 	
 		});
 
