@@ -1,0 +1,179 @@
+d
+<head>
+    
+<title>TokenIP</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+
+<script src="form.js"></script>
+<link rel="stylesheet" href="form.css">
+
+</head>
+
+<body>
+
+
+
+ <h1>LegalNFT</h1>
+  
+  
+
+<div id = "tabs">
+
+<div id="mint" class="mint">
+  <span>Mint a NFT</span>
+</div>
+
+<div id="protect-nft" class="city" >
+  <span>Protect your NFT</span>
+</div>
+
+<div id="check-nft" class="city">
+  <span>Check your NFT's license </span>
+</div>
+
+</div>
+
+
+
+  <section id="check">
+  <p>Protect your NFT</p>
+  <input type="text" placeholder="NFT address"  id="nft-address"/>
+  <input type="text" placeholder="Token ID" id="token-id"/>
+  </section>  
+  
+  
+<div id="load">
+
+<div class="button" id="find">Find</div>
+</div>
+
+  
+  
+  
+  
+  
+  
+  
+  <div id ="protect">
+<div id="svg_wrap"></div>
+
+ 
+<section id="names">
+  <p>First Name and Last Name</p>
+  <input type="text" placeholder="First name"  id="firstname"/>
+  <input type="text" placeholder="Last name" id="lastname"/>
+  </section>
+
+<section>
+  <p>Description of the licensed work</p>
+  <textarea id="description" placeholder="Describe, as precisely as possible, the intellectual work that you have produced and linked to a NFT. Ex : A gif of a flying cat with a Pop-Tart body leaving a rainbow trail." id="description"></textarea>
+</section>
+
+
+<section>
+  <p>Will only the owner of your NFT, and no other third parties, have a right to use your work ?</p>
+ 
+<div class ="radio-ui">
+
+<label for ="yes-exclusive"><input type="radio" id="yes-exclusive" name="exclusive" value="yes">Yes</label></br>
+
+<label for ="no-exclusive"><input type="radio" id="no-exclusive" name="exclusive" value="no"> No</label>
+
+</div>
+
+</section>
+
+
+
+
+<section>
+  <p>Will the owner of your NFT be allowed to reproduce your work on any format ?</p>
+ 
+<div class ="radio-ui">
+
+<label for ="yes-reproduce"><input type="radio" id="yes-reproduce" name="reproduce" value="yes">Yes</label></br>
+
+<label for ="no-reproduce"><input type="radio" id="no-reproduce" name="reproduce" value="no"> No</label>
+
+</div>
+
+</section>
+
+
+
+
+<section>
+  <p>Will the owner of your NFT be allowed to modify your work ?</p>
+ 
+
+
+<label for="modify">Choose an answer.</label>
+<select name="modify" id="modify" >
+  <option value="yes-approval">Yes, but with my prior approval.</option>
+  <option value="yes">Yes, without my approval.</option>
+  <option value="no">No</option>
+</select>
+
+
+
+</section>
+
+
+
+
+<section>
+  <p>Will the owner of your NFT be allowed to use your work for merchandising ?</p>
+ 
+<div class ="radio-ui">
+
+<label for ="yes-merchandising"><input type="radio" id="yes-merchandising" name="merchandising" value="yes">Yes</label></br>
+
+<label for ="no-merchandising"><input type="radio" id="no-merchandising" name="merchandising" value="no"> No</label>
+
+</div>
+
+</section>
+
+
+
+
+<section>
+  <p>Do you guarantee the ownner of your NFT that you have all the rights and permissions necessary to license your work ?</p>
+ 
+<div class ="radio-ui">
+
+<input type="checkbox" id="guarantee" name="guarantee" checked>  <label for="guarantee">Yes, I guarantee to have the full power, capacity, and right to grant a license to the owner of my NFT.</label>
+
+		 
+
+
+</div>
+
+</section>
+
+
+
+<div id="load">
+
+<div class="button" id="prev">Previous</div>
+<div class="button" id="next">Next</div>
+<div class = "button" id="submit"/>Submit</div>
+
+
+</div>
+
+
+<script src="vfs.js"></script>
+
+<script src="bundle.js"></script>
+
+</body>
+
+
+
+
+
+
