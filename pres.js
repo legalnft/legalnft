@@ -1,5 +1,17 @@
+async function meta () {
+	
+	const provider = await detectEthereumProvider();
+
+	if (provider) {
+	  console.log('c installé');
+	} else {
+	  console.log('Please install MetaMask!');
+	}
 
 
+}
+
+meta();
 
 function show(){
 		
