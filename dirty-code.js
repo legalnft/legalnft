@@ -29,6 +29,9 @@ async function promptMeta (){
 
 promptMeta();
 
+console.log(ethereumAccount);
+
+
 const abi = [
 	{
 		"inputs": [
