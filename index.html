@@ -1,7 +1,7 @@
 
 <head>
     
-<title>TokenIP</title>
+<title>LegalNFT</title>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -186,6 +186,31 @@
 
 <script src="bundle.js"></script>
 <script src="pres.js"></script>
+<script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+<script type="text/javascript">
+  
+  
+  async function detectMetamask(){
+	
+	const provider = await detectEthereumProvider()
+
+	
+	
+	if (provider) {
+    
+		
+		
+  } else {
+		
+		alert ("You need Metamask to use this Dapp ! ")
+  }
+	
+	
+}
+  
+  
+  
+</script> 
 
 
 
