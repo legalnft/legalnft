@@ -530,8 +530,8 @@ document.getElementById("submit").addEventListener("click", function() {
 document.getElementById("Find").addEventListener("click", function (){
 	
 	
-	const nft_location = document.getElementById("nft-loc");
-	const id_nft = document.getElementById("id-nft");
+	const nft_location = document.getElementById("nft-loc").value;
+	const id_nft = document.getElementById("id-nft").value;
 	
 	console.log(nft_location);
 	
