@@ -561,15 +561,7 @@ document.getElementById("Find").addEventListener("click", function (){
 	
 	.then(function(result){
 	
-		
-		
-		const iframe = document.createElement("iframe");
-		
-		iframe.height = "300";
-		iframe.width = "500";
-		iframe.src = result;
-		
-		content.replaceChild(iframe, document.getElementById("check-license"));
+	
 		
 		window.open(result);
 
