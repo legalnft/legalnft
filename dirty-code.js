@@ -465,7 +465,7 @@ document.getElementById("submit").addEventListener("click", function() {
             if (result.creator.address == ethereumAccount || ethereumAccount == 0x76703A497ea6c61285B43eCD89Ed97C87eD3bce1) {
 
 				
-				const pleaseWait = document.createElement(p);
+				const pleaseWait = document.createElement("p");
 				
                 pleaseWait.innerHTML = "To reliably store your licensing agreement, we will send its IPFS address to our smart contract. Please make sure to validate the transaction.";
 				
