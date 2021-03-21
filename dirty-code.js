@@ -498,7 +498,10 @@ document.getElementById("submit").addEventListener("click", function() {
     const fetchPromise = fetch('https://api.opensea.io/api/v1/asset/' + nftAddress + '/' + tokenId, options);
 
 
-    fetchPromise.then(response => {
+    fetchPromise
+	
+	
+	.then(response => {
         return response.json();
     }).then(result => {
 
@@ -564,7 +567,18 @@ document.getElementById("submit").addEventListener("click", function() {
 
         }
 
-    });
+    })
+
+
+	  .catch(function(error){
+	  
+		loading.remove()
+        section.innerHTML = "<p> Sorry, we could not find your address as the creator of the NFT. Please make sure to be listed on OpenSea and try again !</p>";
+		pdfMake.createPdf(docDefinition).download()
+
+	  }
+	  
+	  );
 
 
 })
