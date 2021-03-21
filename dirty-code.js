@@ -56,7 +56,7 @@ document.getElementById("file").addEventListener('change', function () {
 		var file_wordArr = CryptoJS.lib.WordArray.create(file_result); //convert blob to WordArray , see https://code.google.com/p/crypto-js/issues/detail?id=67
 		var sha256_hash = CryptoJS.SHA256(file_wordArr); //calculate SHA1 hash
 		fileHash = sha256_hash.toString(); //output result
-		hashValue = " The hash of the Authored Work is " + fileHash + "\n\n ";
+		hashValue = " The hash of the Authored Work is " + fileHash ;
 		
 		
 
@@ -272,7 +272,7 @@ document.getElementById("submit").addEventListener("click", function() {
 							
 							hashValue,
 
-                            ".\n\n",
+                            "\n\n",
 							
 
                             '"The Blockchain" refers to the decentralized, open-source blockchain Ethereum; in its version implemented by the go-ethereum software client.\n\n',
