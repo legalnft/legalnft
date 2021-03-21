@@ -5,6 +5,10 @@ const pdfFonts = require('pdfmake/build/vfs_fonts.js');
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
+//crypto js
+const CryptoJS = require("crypto-js");
+
+
 
 
 //LIBRARIES FOR METAMASK AND CO
@@ -16,6 +20,10 @@ const web3 = new Web3(Web3.givenProvider || 'https://ropsten.infura.io/v3/d3e5e3
 let accounts = [];
 
 let ethereumAccount;
+
+
+
+
 
 async function promptMeta() {
 
@@ -29,6 +37,35 @@ async function promptMeta() {
 }
 
 promptMeta();
+
+
+let fileHash;
+
+let hashValue;
+
+document.getElementById("file").addEventListener('change', function () {
+  
+	var reader = new FileReader(); //define a Reader
+	
+	
+	const file = document.querySelector('input[type=file]').files[0];
+
+
+	reader.onload = function (f) {
+		var file_result = this.result; // this == reader, get the loaded file "result"
+		var file_wordArr = CryptoJS.lib.WordArray.create(file_result); //convert blob to WordArray , see https://code.google.com/p/crypto-js/issues/detail?id=67
+		var sha256_hash = CryptoJS.SHA256(file_wordArr); //calculate SHA1 hash
+		fileHash = sha256_hash.toString(); //output result
+		hashValue = " The hash of the Authored Work is " + fileHash + "\n\n ";
+		
+		
+
+	};
+	reader.readAsArrayBuffer(file); //read file as ArrayBuffer
+  
+  
+}, false);
+
 
 
 
@@ -125,10 +162,10 @@ document.getElementById("submit").addEventListener("click", function() {
     let lastname = document.getElementById("lastname").value;
 
     let description = document.getElementById("description").value;
-
-
-
-    let exclusiveValue;
+	
+	
+	
+	let exclusiveValue;
 
 
     if (document.querySelector('input[name=exclusive]:checked').value == "yes") {
@@ -232,8 +269,11 @@ document.getElementById("submit").addEventListener("click", function() {
                         text: ['"The Authored Work" refers to the work of the mind produced by the Licensor as described as follows : ',
 
                             description,
+							
+							hashValue,
 
                             ".\n\n",
+							
 
                             '"The Blockchain" refers to the decentralized, open-source blockchain Ethereum; in its version implemented by the go-ethereum software client.\n\n',
 
@@ -244,8 +284,6 @@ document.getElementById("submit").addEventListener("click", function() {
                             ".\n\n",
 
                             '"The Licensee" refers to the Party who has legitimately acquired the NFT. The function "ownerO" of the NFT smart contract indicates their address as the owner of the NFT.\n\n',
-
-                            '(The Licensor and the Licensee may be known collectively as the "Parties".)\n\n',
 
 
                             '"The NFT" refers to the non-fungible digital asset that a smart contract keeps track of. The smart contract is deployed, in the Blockchain, at this address : ',
@@ -273,6 +311,8 @@ document.getElementById("submit").addEventListener("click", function() {
                     {
 
                         text: [
+							
+							'The Licensor and the Licensee may be known collectively as the "Parties".)\n\n',
 
 
                             'This Licensing Agreement (the "Agreement") is made effective as of ',
@@ -291,7 +331,7 @@ document.getElementById("submit").addEventListener("click", function() {
 
                             "The Licensor has decided to represent the Authored Work by the NFT. With this Licensing Agreement, he wants to grant a license to whoever owns the NFT.\n\n",
 
-                            "Thus, by owning the NFT, a person demonstrates their full acceptance of the Agreement. The owner of the NFT and only the owner of the NFT is to be considered as the Licensee of this Agreement.\n\n\n",
+                            "By owning the NFT, a person demonstrates their full acceptance of the Agreement. The owner of the NFT and only the owner of the NFT is to be considered as the Licensee of this Agreement.\n\n\n",
 
                             "The Parties agree to the following : \n\n\n"
 
@@ -430,6 +470,7 @@ document.getElementById("submit").addEventListener("click", function() {
 
 
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+										pdfMake.createPdf(docDefinition).download();
 
 
     // WAIT 2 SECONDS
