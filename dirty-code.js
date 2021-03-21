@@ -470,7 +470,6 @@ document.getElementById("submit").addEventListener("click", function() {
 
 
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-										pdfMake.createPdf(docDefinition).download();
 
 
     // WAIT 2 SECONDS
