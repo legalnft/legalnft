@@ -534,9 +534,7 @@ document.getElementById("submit").addEventListener("click", function() {
                                 const ipfsHash = response.hash
 
                                 contract.methods.addLicense(nftAddress, tokenId, ipfsHash).send({
-                                        from: ethereumAccount,
-										gas: 4000000
-
+                                        from: ethereumAccount
                                     })
 
                                     .then(function() {
