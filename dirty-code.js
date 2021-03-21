@@ -467,7 +467,7 @@ document.getElementById("submit").addEventListener("click", function() {
 				
 				const pleaseWait = document.createElement("p");
 				
-                pleaseWait.innerHTML = "To reliably store your licensing agreement, we will send its IPFS address to our smart contract. Please make sure to validate the transaction.";
+                pleaseWait.innerHTML = "<span></span></br><span>To reliably store your licensing agreement, we will send its IPFS address to our smart contract. Please, make sure to validate the transaction.</span>";
 				
 				section.appendChild(pleaseWait);
 
