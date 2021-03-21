@@ -582,8 +582,6 @@ document.getElementById("Find").addEventListener("click", function (){
 	
 	let section = document.getElementById("z");
 
-    document.getElementById("Find").remove();
-
     section.innerHTML = "";
 
     let loading = document.createElement("div");
